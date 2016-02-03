@@ -12,3 +12,6 @@ Note that the code expects an entry with the name ***modelobj*** in the first pi
 
 ## Output
 The code will return a numpy array of the feature names and their corresponding directed importance values. Currently, the directed importance values are calculated as the difference of Prob(y=1|x) between the maximum and minimum value of feature x within its range. Further developments will follow for alternative ways of quantifying the directed importances.
+
+## Attribution
+If you found this code useful in your work, please cite it.
