@@ -7,7 +7,7 @@ In general, random forest classifiers such as `sklearn.ensemble.RandomForestClas
 The code currently takes two pickle files as inputs, one containing the trained `sklearn.ensemble.RandomForestClassifier` object and another containing the data matrix. Note that the code expects an entry with the name ***modelobj*** in the first pickle file containing the trained model object, an entry with the name ***feature_importances_names*** in the first pickle file containing the names of all features, and an entry with the name ***test_X*** in the second pickle file containing the data matrix. This will be generalized in later versions.
 
 ## Output
-In the current notebook format, the code will return 1) the P(y=1|x) curves and detected transitions in them, and 2) the naive directed importance of P(y=1|x=x_max)-P(y|x=x_min).
+In the current notebook format, the code will return 1) the P(y=1|x) curves and detected transitions in them, and 2) the naive directed importance of P(y=1|x=x_max)-P(y=1|x=x_min).
 
 ## Caveats
 Currently the code only works for numerical features with more than one feature value in the data. Implementation for categorical variables will happen in later versions.
