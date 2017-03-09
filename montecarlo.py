@@ -3,7 +3,8 @@ import math
 import random
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plot
+import matplotlib.pyplot as plt
+
 
 class MonteCarlo(object):
 
@@ -17,16 +18,14 @@ class MonteCarlo(object):
         self.feat_min = np.amin(X_in,axis=0)
         self.feat_max = np.amax(X_in,axis=0)
         self.n_feat = len(self.feat_max)
-
     
-
-    '''
-    Generates a Monte Carlo sample of the feature space
-    and the derived conditional probabilities P(y|x_i) for each feature x_i
-    '''
 
     def generate(self,n_sample,n_bins):
 
+        '''
+        Generates a Monte Carlo sample of the feature space
+        and the derived conditional probabilities P(y|x_i) for each feature x_i
+        '''
 
         # Generate Monte Carlo samples
 
@@ -56,12 +55,12 @@ class MonteCarlo(object):
         self.n_bins = n_bins
 
 
-    '''
-    Plots the genereated conditional probability curves
-
-    '''
 
     def plot_curves(self):
+
+        '''
+        Plots the genereated conditional probability curves
+        '''
 
         for i in range(self.n_feat):
 
@@ -81,14 +80,15 @@ class MonteCarlo(object):
             plt.clf()
 
 
-    '''
-    Detects sharp transitions in the conditional probability function,
-    returns their locations and magnitudes,
-    and plots the curves and transitions
-    '''
+
 
     def edge_detect(self):
-
+  
+        '''
+        Detects sharp transitions in the conditional probability function,
+        returns their locations and magnitudes,
+        and plots the curves and transitions
+        '''
 
         # Clean the generated curves for non-numerical and single-valued features
 
@@ -146,13 +146,13 @@ class MonteCarlo(object):
             for i in range(len(transitions)):
 
                 xpos = transitions[i][0]
-                plt.arrow( (feat_range[xpos] + feat_range[xpos+1]) / 2., (vals[xpos] + vals[xpos+1]) / 2., 0, transitions[i][1], head_length=0.002, head_width=ssize/1.2, width=ssize/10., color='red')
+                plt.arrow( (feat_range[xpos] + feat_range[xpos+1]) / 2., (vals[xpos] + vals[xpos+1]) / 2., 0, transitions[i][1], head_length=ssize/10., head_width=ssize/1.2, width=ssize/20., color='red')
             
             #plt.savefig(model['feature_importances_names'][xx]+'.png')
             plt.show()
             plt.clf()
 
-        self.transitions = np.array(transitions_all)
+        self.transitions = transitions_all
 
 
 
